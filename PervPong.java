@@ -36,6 +36,7 @@ public class PervPong {
     public static JLabel levelLabel;
     public static JLabel scoreLabel;
     public static int playerScore;
+
     public static void main(String[] args) {
         initializeState();
         initializeAgents();
@@ -241,8 +242,10 @@ public class PervPong {
 
     public static void loadLevelImage() {
         try {
-            background = ImageIO.read(new File(PervPong.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "/img/" + level + ".jpg"));
-        } catch (IOException e) {}
+            //background = ImageIO.read(new File(PervPong.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "/img/" + level + ".jpg"));
+            background = ImageIO.read(PervPong.class.getResourceAsStream("/img/" + level + ".jpg"));
+        } catch (Exception e) {
+        }
     }
 
     public static void startAtLevel(int toLevel){
